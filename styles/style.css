@@ -1,0 +1,186 @@
+/* imports/ google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+/* <uniquifier>: Use a uniquifier for the class name
+   <weight>: Use a value from 200 to 900 */
+
+* {
+    margin: 0em;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Source Code Pro", monospace;
+}
+.body {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fafafa;
+}
+
+.container-title {
+    display: flex;
+    justify-content: center;
+    padding: 4%;
+    background-color: rgb(240, 243, 241);
+}
+#title {
+    letter-spacing: .5rem;
+    text-transform: uppercase;
+}  
+
+ /*========HERO=========*/
+ #hero {
+    /* background-color: rgb(240, 243, 241); */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 4%;
+ }
+/*---------IMAGE--------*/
+.man-box {
+    max-height: 600px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.game-box {
+    justify-content: center;
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+}
+.image {
+    height: 100%;
+    border: solid 1px black;
+}
+.word-display li{
+    list-style-type: none;
+    display: flex;
+    display: inline-block;
+}
+.letter {
+    font-size: 2rem;
+    margin: .2rem;
+}
+.hint-text {
+    padding-top: 2rem;
+    font-weight: 300;
+}
+.btn-cta button{
+    font-size: 1.5rem;
+    border: solid 1px black;
+    border-radius: 4px;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    padding: 0.5rem 3rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    /* width 30% of its parent/ container */
+    /* width: 30%;                     */
+}
+.guessed-text {
+    font-weight: 300;
+    color: rgb(253, 51, 0);
+}
+/* ========POP-UP======= */
+.game-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.6);
+    padding: 2rem;
+    width: 100%;
+    height: 100%;
+    display: none;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+ 
+    /* z-index: 1; */
+}
+.game-modal .content{
+    padding: 2rem;
+    border-radius: 0.5rem;
+    color: black;
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+    text-align: center;
+}
+.game-modal p b {
+    color: red;
+    font-weight: 600;
+}
+
+/* =======KEYBOARD======= */
+.keyboard {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.keyboard button {
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+/* =========FOOTER======= */
+.container-footer {
+    position: bottom;
+    display: flex;
+    justify-content: center;
+    padding: 4%;
+    background-color: rgb(240, 243, 241);
+}
+
+
+
+
+
+/* ===================================== */
+/* MOBILE Extra small devices (phones) */
+@media only screen and (max-width: 768px) {
+    .top-margin {
+        display: none;
+    }
+    #hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .man-box {
+        margin: 0;
+        height: 400px;
+        /* width: 100%; */
+        display: flex;
+        flex-direction: column;
+    }
+    .hint-text {
+        padding-top: .5rem;
+    }
+    .game-box {
+        margin: 0;
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-cta button {
+        margin-top: 8%;
+        width: 100%;
+    }
+    .keyboard {
+        display: none;
+    }
+
+}
+/* TABLET-PORTRAIT Medium devices (portrait tablets 1024px and up) */
+@media only screen and (min-width: 769px) and (max-width: 1023px) {}
+/* LAPTOPS + */
+@media only screen and (min-width: 1024px) {}
