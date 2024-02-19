@@ -86,11 +86,22 @@ function keyboardClick(clickedLetter) {
 }
 
 // assign events to all buttons
-const keyButtons = document.querySelectorAll("#keyboard button");
-
-keyButtons.forEach((keyButton) => {
-  keyButton.addEventListener("click", (e) => {
-    const clickedLetter = keyButton.innerHTML;
-    keyboardClick(clickedLetter);
+function setupKeyboard() {
+  // get all the button elememts from keyboard
+  const buttons = document.querySelectorAll("#keyboard button");
+  // iterate through each of all buttons and click
+  buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+      keyboardClick(button.textContent);
+      button.disable = true;
+    });
   });
-});
+}
+setupKeyboard();
+
+// keyButtons.forEach((keyButton) => {
+//   keyButton.addEventListener("click", (e) => {
+//     const clickedLetter = keyButton.innerHTML;
+//     keyboardClick(clickedLetter);
+//   });
+// });
