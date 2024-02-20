@@ -15,7 +15,7 @@ let wordDisplay = []; // what user sees "_ _ _ _"
 function startGame() {
   // Random selected item, word & hint from array
   const randomIndex = Math.floor(Math.random() * wordList.length);
-  selectedWord = wordList[randomIndex].word; // declared outside (fut changes)
+  selectedWord = wordList[randomIndex].word.toUpperCase(); // declared outside (fut changes)
   const hint = wordList[randomIndex].hint;
 
   console.log(hint);
@@ -27,11 +27,15 @@ function startGame() {
   // Hidden word w/ underscore "_ _ _ _"
   // const arr = new Array(LEN).fill(0);
   wordDisplay = new Array(selectedWord.length).fill("_");
+  // Display the hint
+  document.getElementById("hintDisplay").textContent = "Hint: " + hint;
 
-  console.log("Selected word: " + selectedWord);
-  console.log("Word display: " + wordDisplay.join(" "));
+  // console.log("Selected word: " + selectedWord);
+  // console.log("Word display: " + wordDisplay.join(" "));
+
+  updateWordDisplay();
 }
-startGame();
+// startGame();
 
 //2. F(X) DISPLAY ON INTERFACE '_' & 'A'
 
@@ -61,15 +65,17 @@ function updateWordDisplay() {
 // if not => update incorrectGuesses
 
 function keyboardClick(clickedLetter) {
-  console.warn(clickedLetter);
-  console.log(selectedWord);
+  // console.warn(clickedLetter);
+  // console.log(selectedWord);
+  //clickedLetter is in lowercase for comparison
+  clickedLetter = clickedLetter.toLowerCase();
   //check if clickLetter is in selectedWord
-  if (selectedWord.toLowerCase().includes(clickedLetter)) {
+  if (selectedWord.toLowerCase().includes(clickedLetter)) {    
     console.log("letter exists");
     //iterate through selectedWord:
     for (let i = 0; i < selectedWord.length; i++) {
-      if (selectedWord[i] === clickedLetter) {
-        wordDisplay[i] = clickedLetter;
+      if (selectedWord[i].toLowerCase() === clickedLetter) {
+        wordDisplay[i] = selectedWord[i];
       }
     }
     // if yes connect to updateWordDisplay();
@@ -77,6 +83,7 @@ function keyboardClick(clickedLetter) {
   } else {
     // update incorrectGuesses VS guessedLetters
     incorrectGuesses++;
+    document.getElementById("incorrectDisplay").textContent = `Incorrect guesses: ${incorrectGuesses} | ${maxIncorrect}`;
     // ==================upadate image
   }
   // Add the clickedLetter to the guessedLetters array to keep track of it
@@ -93,11 +100,16 @@ function setupKeyboard() {
   buttons.forEach((button) => {
     button.addEventListener("click", function () {
       keyboardClick(button.textContent);
-      button.disable = true;
+      button.disabled = true;
     });
   });
 }
-setupKeyboard();
+
+// setupKeyboard and startGame are called after the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", (event) => {
+  startGame();
+  generateKeyboard();
+});
 
 // keyButtons.forEach((keyButton) => {
 //   keyButton.addEventListener("click", (e) => {
@@ -105,3 +117,29 @@ setupKeyboard();
 //     keyboardClick(clickedLetter);
 //   });
 // });
+
+// Dynamic Keyboard
+function generateKeyboard() {
+  const keyboardDiv = document.getElementById("keyboard");
+  keyboardDiv.innerHTML = ''; // Clear existing buttons if any
+
+  // Generate A-Z
+  for (let i = 65; i <= 90; i++) {
+      const button = document.createElement("button");
+      // Convert ASCII code to letter between 0 and 65535
+      button.textContent = String.fromCharCode(i); 
+      keyboardDiv.appendChild(button);
+  }
+
+  // Generate 0-9
+  for (let i = 0; i <= 9; i++) {
+      const button = document.createElement("button");
+      // Number to string
+      button.textContent = i.toString(); 
+      keyboardDiv.appendChild(button);
+  }
+
+  // Setup event listeners for the generated buttons
+  setupKeyboard();
+}
+//note: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode
