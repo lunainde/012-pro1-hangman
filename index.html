@@ -21,6 +21,18 @@
                 </div>
             </div>
         </div>
+
+        <!-- POP-UP-MSG | Dynamic-->
+        <div class="game-win">
+            <div class="content">
+                <h2 id="endGameWin">STAY MAGICAL!</h2>
+                <!-- <p>Answer: <b id="endGameWin">Test</b></p> -->
+                <div class="btn-cta">
+                    <button class="again" onclick="startGame()">play again</button>
+                </div>
+            </div>
+        </div>
+
         <!-- TITLE -->
         <div class="container-title">
             <h1 id="title">Hangman_</h1>
@@ -29,9 +41,9 @@
 
         <!-- IMG BOX -->
         <div id="hero">
-            <!-- Hangman Image | Dynamic -->
-            <div class="man-box" id="hangmanImage">
-                <img class="image" src="images/hm-0.png" alt="hangman-img">
+            <!-- Hangman IMAGE | Dynamic -->
+            <div class="man-box">
+                <img class="image" id="hangmanImage" src="images/hm-0.png" alt="Hangman Game State">
             </div>
 
             <!-- GAME BOX -->
@@ -49,7 +61,7 @@
                 </h3>
                 <!-- Incorrect Guesses | Dynamic-->
                 <h4 class="guessed-text" id="incorrectGuesses">
-                    Incorrect guesses: <b id="incorrectDisplay">0 | 6</b>
+                    <b id="incorrectDisplay">0 | 6</b>
                 </h4>
             </div>
         </div>
@@ -57,8 +69,8 @@
         <hr class="divider">
         <div class="keyboard" id="keyboard">
             <!-- Dynamic Keyboard Placeholder -->
-            <button>a</button><button>b</button><button>c</button><button>d</button><button>e</button><button>f</button><button>g</button><button>h</button><button>i</button><button>j</button><button>k</button><button>l</button><button>m</button><button>n</button><button>o</button><button>p</button><button>q</button><button>r</button><button>s</button><button>t</button><button>u</button><button>v</button><button>w</button><button>x</button><button>y</button><button>z</button>
-            <button>0</button><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button><button>9</button><button>+</button><button>-</button><button>,</button><button>.</button>
+            <!-- <button>a</button><button>b</button><button>c</button><button>d</button><button>e</button><button>f</button><button>g</button><button>h</button><button>i</button><button>j</button><button>k</button><button>l</button><button>m</button><button>n</button><button>o</button><button>p</button><button>q</button><button>r</button><button>s</button><button>t</button><button>u</button><button>v</button><button>w</button><button>x</button><button>y</button><button>z</button>
+            <button>0</button><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button><button>9</button><button>+</button><button>-</button><button>,</button><button>.</button> -->
         </div>
     </main>
     <hr class="divider">
