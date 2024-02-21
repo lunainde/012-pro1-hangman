@@ -28,13 +28,21 @@
 }  
 
  /*========HERO=========*/
- #hero {
-    /* background-color: rgb(240, 243, 241); */
+#hero {
+    /* background-size: cover; */
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 4%;
+    padding: 1% 2%;
+    background-image: url('images/bg-0.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: bottom; 
  }
+ /* #hero #background {
+    background-size: cover;
+    z-index: -1;
+ } */
 /*---------IMAGE--------*/
 .man-box {
     max-height: 600px;
@@ -147,7 +155,7 @@
     gap: 8px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 1rem;
+    margin: 1rem;
 }
 .keyboard button {
     padding: 12px;
@@ -158,13 +166,22 @@
 
 
 /* =========FOOTER======= */
-.container-footer {
-    position: bottom;
-    display: flex;
+/* .footer .divider {
+    position: top;
+} */
+#footer {
+    position: fixed;
+    max-height: 50px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    /* display: flex; */
+    text-align: center;
     justify-content: center;
     padding: 4%;
     background-color: rgb(240, 243, 241);
 }
+
 
 
 /* ===================================== */
@@ -177,6 +194,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        height: 50vh;
     }
     .man-box {
         margin: 0;
@@ -206,6 +224,14 @@
 
 }
 /* TABLET-PORTRAIT Medium devices (portrait tablets 1024px and up) */
-@media only screen and (min-width: 769px) and (max-width: 1023px) {}
+@media only screen and (min-width: 769px) and (max-width: 1023px) {
+    #hero {
+        height: 60vh; /* Adjust based on your preference */
+    }
+}
 /* LAPTOPS + */
-@media only screen and (min-width: 1024px) {}
+@media only screen and (min-width: 1024px) {
+    #hero {
+        height: 70vh; /* Adjust based on your preference */
+    }
+}

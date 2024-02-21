@@ -17,7 +17,7 @@ function startGame() {
   document.querySelector(".game-modal").style.display = "none";
   document.querySelector(".game-win").style.display = "none";
   // to do - reset the image to no body parts
-
+  document.getElementById("hero").style.backgroundImage = "url('images/bg-0.png')";
   // Random selected item, word & hint from array
   const randomIndex = Math.floor(Math.random() * wordList.length);
   selectedWord = wordList[randomIndex].word.toUpperCase(); // declared outside (fut changes)
@@ -97,9 +97,8 @@ function keyboardClick(clickedLetter) {
     // update incorrectGuesses VS guessedLetters
     incorrectGuesses++;
     hangmanImage.src = `images/hm-${incorrectGuesses}.png`;
-    document.getElementById(
-      "incorrectDisplay"
-    ).textContent = `Incorrect guesses: ${incorrectGuesses} | ${maxIncorrect}`;
+    document.getElementById("hero").style.backgroundImage = `url('images/bg-${incorrectGuesses}.png')`;
+    document.getElementById("incorrectDisplay").textContent = `Incorrect guesses: ${incorrectGuesses} | ${maxIncorrect}`;
 
     // document.getElementById("hangmanImage").src = "images/hm-0.png";
     // document.getElementById("hangmanImage").src = "hm-" + incorrectGuesses + ".png";
@@ -130,7 +129,7 @@ function gameOver(hasWon) {
       }, 2000);
     } else {
       loseSound.play();
-      
+
       setTimeout(function() {
       document.querySelector(".game-modal").style.display = "block";
       }, 2000);
