@@ -46,9 +46,10 @@
 /*---------IMAGE--------*/
 .man-box {
     max-height: 600px;
-    justify-content: center;
+    justify-content: bottom;
     align-items: center;
     display: flex;
+    margin-top: 18vh;
 }
 .game-box {
     justify-content: center;
@@ -169,16 +170,20 @@
 /* .footer .divider {
     position: top;
 } */
+
+
+main{
+    min-height: calc(100vh - 100px);
+}
+
 #footer {
-    position: fixed;
-    max-height: 50px;
+    display: flex;
+    height: 100px;
     width: 100%;
-    left: 0;
-    bottom: 0;
     /* display: flex; */
     text-align: center;
-    justify-content: center;
-    padding: 4%;
+    align-items: center;
+    justify-content: center; 
     background-color: rgb(240, 243, 241);
 }
 
